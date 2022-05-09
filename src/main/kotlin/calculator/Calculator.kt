@@ -35,15 +35,9 @@ class Calculator {
     }
 
     private fun checkOperation(content: String) {
-        if (isNumber(content).not() && isOperation(content).not()) {
+        if (content.isNumber().not() && isOperation(content).not()) {
             throw IllegalArgumentException("사칙연산 기호가 아닌 문자가 들어있습니다.")
         }
-    }
-
-    private fun isNumber(content: String): Boolean {
-        val isIntRegex = Regex("-?\\d+")
-
-        return content.matches(isIntRegex)
     }
 
     private fun isOperation(content: String): Boolean {
