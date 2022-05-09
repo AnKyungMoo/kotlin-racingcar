@@ -6,6 +6,12 @@ import org.junit.jupiter.api.Test
 
 class CalculatorTest {
     @Test
+    fun `메인`() {
+        val calculator = Calculator()
+        println(calculator.input("0 + 2"))
+    }
+
+    @Test
     fun `정상 입력`() {
         val calculator = Calculator()
         assertThat(calculator.input("1111 * 2 + 1 - 3 / 2")).isEqualTo(1110)

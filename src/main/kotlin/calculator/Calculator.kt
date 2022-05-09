@@ -7,20 +7,15 @@ class Calculator {
 
         val expressionContents: List<String> = expression.split(" ")
 
-        var result = 0
+        var result = expressionContents.first().toInt()
         var operation: String? = null
 
-        expressionContents.forEachIndexed { index, content ->
+        expressionContents.drop(1).forEach { content ->
             checkOperation(content)
-
-            if (index == 0) {
-                result = content.toInt()
-                return@forEachIndexed
-            }
 
             if (isOperation(content)) {
                 operation = content
-                return@forEachIndexed
+                return@forEach
             }
 
             result = calculate(first = result, second = content.toInt(), operation = operation)
